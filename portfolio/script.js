@@ -1,166 +1,149 @@
-/* ========= helpers ========= */
-const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-const $ = (sel, root = document) => root.querySelector(sel);
+(function () {
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => Array.from(el.querySelectorAll(s));
 
-function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+  // year
+  const yearEl = $("#year");
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
-/* ========= fade / active section ========= */
-const projects = $$('.project');
-let activeIndex = 0;
-
-const observer = new IntersectionObserver((entries) => {
-  // choose the entry closest to center / highest ratio
-  const visible = entries
-    .filter(e => e.isIntersecting)
-    .sort((a,b) => (b.intersectionRatio - a.intersectionRatio));
-
-  if (!visible.length) return;
-
-  const top = visible[0].target;
-  const idx = projects.indexOf(top);
-  if (idx !== -1) setActive(idx);
-}, { threshold: [0.25, 0.5, 0.65] });
-
-projects.forEach(p => observer.observe(p));
-
-function setActive(idx){
-  if (idx === activeIndex) return;
-  projects[activeIndex]?.classList.remove('is-active');
-  projects[idx]?.classList.add('is-active');
-  activeIndex = idx;
-
-  // gently re-place sprite (slow + not jumpy)
-  placeSpriteFor(idx);
-
-  // keep active video playing
-  const v = $('.js-video', projects[idx]);
-  if (v) safePlay(v);
-}
-
-/* ========= video behaviour ========= */
-function safePlay(video){
-  // iOS / browser policy: autoplay works reliably only when muted
-  video.muted = true;
-  const p = video.play();
-  if (p && typeof p.catch === 'function') p.catch(() => {});
-}
-
-function replayIn(section){
-  const v = $('.js-video', section);
-  if (!v) return;
-  try { v.currentTime = 0; } catch(e){}
-  safePlay(v);
-}
-
-function toggleMuteIn(section, btn){
-  const v = $('.js-video', section);
-  if (!v) return;
-
-  // user gesture → allowed to unmute
-  v.muted = !v.muted;
-  btn.textContent = v.muted ? 'Sound: Off' : 'Sound: On';
-}
-
-/* click video → fullscreen */
-function enterFullscreen(video){
-  // requestFullscreen (standard)
-  if (video.requestFullscreen) return video.requestFullscreen();
-  // Safari iOS (some versions)
-  if (video.webkitEnterFullscreen) return video.webkitEnterFullscreen();
-}
-
-projects.forEach(section => {
-  const video = $('.js-video', section);
-  if (video){
-    // force autoplay attempt
-    safePlay(video);
-
-    // click video → fullscreen
-    video.addEventListener('click', () => enterFullscreen(video));
-  }
-
-  // buttons
-  const muteBtn = $('.js-mute', section);
-  if (muteBtn){
-    muteBtn.addEventListener('click', () => toggleMuteIn(section, muteBtn));
-  }
-  const replayBtn = $('.js-replay', section);
-  if (replayBtn){
-    replayBtn.addEventListener('click', () => replayIn(section));
-  }
-  const fsBtn = $('.js-fullscreen', section);
-  if (fsBtn && video){
-    fsBtn.addEventListener('click', () => enterFullscreen(video));
-  }
-});
-
-/* ========= language switch (per block) ========= */
-function wireLangSwitch(root){
-  const pills = $$('[data-lang]', root).filter(el => el.classList.contains('pill'));
-  const panels = $$('[data-lang-panel]', root);
-
-  if (!pills.length || !panels.length) return;
-
-  const setLang = (lang) => {
-    pills.forEach(p => p.classList.toggle('is-on', p.dataset.lang === lang));
-    panels.forEach(p => p.classList.toggle('is-on', p.dataset.langPanel === lang));
+  // modal
+  const modal = $("#modal");
+  const walker = $(".walker");
+  const closeModal = () => {
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+  };
+  const openModal = () => {
+    if (!modal) return;
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
   };
 
-  pills.forEach(p => {
-    p.addEventListener('click', () => setLang(p.dataset.lang));
-  });
-}
+  if (walker) {
+    walker.addEventListener("click", openModal);
+  }
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      const t = e.target;
+      if (t && t.dataset && t.dataset.close) closeModal();
+      if (t && t.tagName === "A" && t.dataset && t.dataset.close) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+  }
 
-$$('.lang').forEach(block => wireLangSwitch(block));
+  // YouTube lazy-load: only load src when section becomes active
+  const activateYouTube = (section) => {
+    const iframes = $$("iframe.yt", section);
+    iframes.forEach((f) => {
+      if (!f.src) {
+        const src = f.getAttribute("data-src");
+        if (src) f.src = src;
+      }
+    });
+  };
 
-/* ========= silhouette sprite (slow + gentle) ========= */
-const sprite = $('#sprite');
-const aboutModal = $('#aboutModal');
-const openAboutBtn = $('#openAbout');
+  // Fullscreen for local videos
+  const bindFullscreen = () => {
+    $$("video.vid").forEach((v) => {
+      v.addEventListener("click", async () => {
+        try {
+          if (document.fullscreenElement) {
+            await document.exitFullscreen();
+          } else {
+            if (v.requestFullscreen) await v.requestFullscreen();
+          }
+        } catch (_) {}
+      });
+    });
 
-function placeSpriteFor(idx){
-  // positions are intentionally subtle, not “jump scares”
-  const presets = [
-    { x: 6,  y: 70 },
-    { x: 10, y: 58 },
-    { x: 7,  y: 76 },
-    { x: 12, y: 64 }
-  ];
-  const p = presets[idx % presets.length];
+    // For YouTube: click to open watch page (sound)
+    $$("iframe.yt").forEach((f) => {
+      const wrap = f.closest(".media__frame");
+      if (!wrap) return;
+      wrap.addEventListener("click", () => {
+        const ds = f.getAttribute("data-src") || "";
+        const m = ds.match(/embed\/([A-Za-z0-9_-]+)/);
+        if (m && m[1]) {
+          window.open(`https://youtu.be/${m[1]}`, "_blank", "noreferrer");
+        }
+      }, { passive: true });
+    });
+  };
 
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
+  // Section activation + fade
+  const sections = $$(".work");
+  let activeIndex = 0;
 
-  const x = clamp((p.x/100) * vw, 10, vw - 70);
-  const y = clamp((p.y/100) * vh, 80, vh - 90);
+  const moveWalker = (index) => {
+    if (!walker) return;
+    // slower, subtle drift across the screen; no sharp jumps
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
-  sprite.classList.add('is-on');
-  sprite.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-}
+    // keep it in a safe band (not covering text)
+    const x = Math.max(12, Math.min(w - 48, (w * 0.78) + (Math.sin(index * 1.7) * w * 0.12)));
+    const y = Math.max(12, Math.min(h - 90, (h * 0.72) + (Math.cos(index * 1.3) * h * 0.12)));
 
-// show sprite after initial settle
-setTimeout(() => placeSpriteFor(0), 450);
+    walker.style.transform = `translate3d(${Math.round(x - (w - 48))}px, ${Math.round(y - (h - 60))}px, 0)`;
+  };
 
-/* ========= modal ========= */
-function openModal(){
-  aboutModal.classList.add('is-on');
-  aboutModal.setAttribute('aria-hidden', 'false');
-}
+  const playActiveVideos = (section) => {
+    // play/pause local muted videos only
+    sections.forEach((s) => {
+      $$("video.vid", s).forEach((v) => {
+        if (s === section) {
+          v.play().catch(() => {});
+        } else {
+          v.pause();
+        }
+      });
+    });
+  };
 
-function closeModal(){
-  aboutModal.classList.remove('is-on');
-  aboutModal.setAttribute('aria-hidden', 'true');
-}
+  const io = new IntersectionObserver(
+    (entries) => {
+      // pick the most visible entry
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-sprite.addEventListener('click', openModal);
-openAboutBtn.addEventListener('click', openModal);
-aboutModal.addEventListener('click', (e) => {
-  const t = e.target;
-  if (t?.dataset?.close === '1') closeModal();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
+      if (!visible) return;
 
-/* ========= keep active video stable on resize ========= */
-window.addEventListener('resize', () => placeSpriteFor(activeIndex));
+      const sec = visible.target;
+      sections.forEach((s) => s.classList.toggle("is-active", s === sec));
+      activeIndex = sections.indexOf(sec);
+
+      activateYouTube(sec);
+      playActiveVideos(sec);
+      moveWalker(activeIndex);
+    },
+    { threshold: [0.35, 0.5, 0.65] }
+  );
+
+  sections.forEach((s) => io.observe(s));
+
+  // Installation photo slow rotate (no buttons)
+  const startPhotoRotate = () => {
+    $$(".photoDrift[data-rotate='1']").forEach((wrap) => {
+      const imgs = $$(".photoDrift__img", wrap);
+      if (imgs.length <= 1) return;
+
+      let i = 0;
+      setInterval(() => {
+        imgs.forEach((img, idx) => img.classList.toggle("is-on", idx === i));
+        i = (i + 1) % imgs.length;
+      }, 4200);
+    });
+  };
+
+  // init
+  bindFullscreen();
+  startPhotoRotate();
+
+  // ensure first section loads its YouTube
+  if (sections[0]) activateYouTube(sections[0]);
+  moveWalker(0);
+})();
