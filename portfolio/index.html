@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LIQINGZHI — Portfolio</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand__name">LIQINGZHI</div>
+      <div class="brand__meta">Digital Media Art · Art × Tech × Theory</div>
+    </div>
+
+    <nav class="nav">
+      <a class="nav__link" href="#projects">Projects</a>
+      <a class="nav__link" href="#credits">Credits</a>
+      <button class="nav__link nav__btn" id="openAbout" type="button">About</button>
+    </nav>
+  </header>
+
+  <main id="projects" class="main">
+    <!-- PROJECT 01 -->
+    <section class="project is-active" data-index="1" id="p1">
+      <div class="board">
+        <div class="board__left">
+          <div class="media frame">
+            <video class="js-video"
+              src="../assets/videos/p1.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+
+            <button class="chip chip--left js-fullscreen" type="button" aria-label="Fullscreen">Full screen</button>
+          </div>
+          <div class="caption">Click video to enter fullscreen. Sound is off by default.</div>
+        </div>
+
+        <aside class="board__right">
+          <div class="kicker">
+            <span class="kicker__no">01</span>
+            <span class="kicker__type">Feminist Experimental Video</span>
+          </div>
+
+          <h2 class="title">[Project Title] · Feminist Visual Regimes</h2>
+
+          <div class="meta">
+            <div class="meta__row">
+              <span class="meta__k">Format</span><span class="meta__v">Single-screen multi-channel composition</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Output</span><span class="meta__v">Video + process archive</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Sound</span><span class="meta__v">Muted autoplay; optional toggle</span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn js-mute" type="button">Sound: Off</button>
+            <button class="btn js-replay" type="button">Replay</button>
+          </div>
+
+          <div class="lang">
+            <div class="lang__bar">
+              <div class="lang__label">Artist statement</div>
+              <div class="lang__switch" role="tablist" aria-label="Language switch">
+                <button class="pill is-on" type="button" data-lang="en">EN</button>
+                <button class="pill" type="button" data-lang="zh">中文</button>
+              </div>
+            </div>
+
+            <div class="lang__panel is-on" data-lang-panel="en">
+              This experimental video treats “femininity” as a structured visibility rather than a personal style. By collaging social-media imagery with generated visuals and multi-channel composition, it tracks how bodies become legible through platform codes—pose, affect, and circulation. The work shifts from recognition to rupture, inserting perceptual breaks so critique operates inside the viewing rhythm, not only in the images.
+            </div>
+
+            <div class="lang__panel" data-lang-panel="zh">
+              本实验影像将“女性气质”视为一种被结构化的可见度，而非个人审美。作品以社交媒体图像、生成视觉与多通道并置构图为方法，追踪身体如何在平台规则中变得“可读”——姿态、情感与传播共同塑形。影像从识别走向断裂：通过节奏性的视觉裂缝，让批判发生在观看机制内部，而不止停留于图像表意。
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="note">
+            Tip: keep sound off during review; invite the examiner to enable it deliberately.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECT 02 -->
+    <section class="project" data-index="2" id="p2">
+      <div class="board">
+        <div class="board__left">
+          <div class="media frame">
+            <video class="js-video"
+              src="../assets/videos/p2.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+
+            <button class="chip chip--left js-fullscreen" type="button">Full screen</button>
+          </div>
+          <div class="caption">Collab project. Interaction originally authored in Processing (web port in progress).</div>
+        </div>
+
+        <aside class="board__right">
+          <div class="kicker">
+            <span class="kicker__no">02</span>
+            <span class="kicker__type">Feminist Interactive Game + Video (Collab)</span>
+          </div>
+
+          <h2 class="title">To be seen as her · 被视作她</h2>
+
+          <div class="meta">
+            <div class="meta__row">
+              <span class="meta__k">Structure</span><span class="meta__v">Game + experimental video</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Role</span><span class="meta__v">Concept + AI/visual system (Li Qingzhi)</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Collab</span><span class="meta__v">Sound + code implementation (Liu Yanshuo)</span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn js-mute" type="button">Sound: Off</button>
+            <button class="btn js-replay" type="button">Replay</button>
+          </div>
+
+          <div class="lang">
+            <div class="lang__bar">
+              <div class="lang__label">Artist statement</div>
+              <div class="lang__switch">
+                <button class="pill is-on" type="button" data-lang="zh">中文</button>
+                <button class="pill" type="button" data-lang="en">EN</button>
+              </div>
+            </div>
+
+            <div class="lang__panel is-on" data-lang-panel="zh">
+              《被视作她》是一件女权主义实验性项目，由互动游戏与实验影像构成，融合社交媒体图像、拼贴与 AI 视觉元素，聚焦女性身体、性别角色与平台视觉文化中的权力机制。游戏以讽刺性的互动体验让观众切身感受身份被建构、标签被规训的过程；影像从掠食性雌性动物与人类女性形象的并置出发，讨论审美规训、情感商品化与性别脚本化，并回应多元女性主体性的可能。该项目的世界观延伸自我之前的影像研究：我负责概念与整体视觉系统（含 AI 生成与拼贴），Liu Yanshuo 负责声音与代码实现。
+            </div>
+
+            <div class="lang__panel" data-lang-panel="en">
+              To be seen as her is a feminist experimental project composed of an interactive game and a video work. It combines social-media imagery, collage, and AI-generated visuals to examine how gendered bodies become governed within platform visual culture. The game stages a satirical, embodied encounter with identity construction and label-based discipline; the video begins from a juxtaposition of predatory female animals and human femininity to address aesthetic discipline, the commodification of affect, and scripted gender roles—while keeping open the possibility of plural, negotiated female subjectivities. This project’s world-building extends my earlier video research: I developed the concept and the full visual system (including AI generation and collage), while Liu Yanshuo produced the sound and implemented the code.
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="note">
+            Portfolio note: the interaction was originally authored in Processing; a browser port is being developed for online presentation.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECT 03 -->
+    <section class="project" data-index="3" id="p3">
+      <div class="board">
+        <div class="board__left">
+          <div class="media frame">
+            <video class="js-video"
+              src="../assets/videos/p3.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+            ></video>
+            <button class="chip chip--left js-fullscreen" type="button">Full screen</button>
+          </div>
+          <div class="caption">Theme: Chinese family expectation · intergenerational transmission.</div>
+        </div>
+
+        <aside class="board__right">
+          <div class="kicker">
+            <span class="kicker__no">03</span>
+            <span class="kicker__type">Experimental Film</span>
+          </div>
+
+          <h2 class="title">Chinese Family Expectation · 中式家庭期望</h2>
+
+          <div class="meta">
+            <div class="meta__row">
+              <span class="meta__k">Focus</span><span class="meta__v">Kinship → hierarchy → expectation</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Method</span><span class="meta__v">Model family / thread system / orbital metaphor</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Extension</span><span class="meta__v">Toward participatory authorship</span>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn js-mute" type="button">Sound: Off</button>
+            <button class="btn js-replay" type="button">Replay</button>
+          </div>
+
+          <div class="lang">
+            <div class="lang__bar">
+              <div class="lang__label">Artist statement</div>
+              <div class="lang__switch">
+                <button class="pill is-on" type="button" data-lang="zh">中文</button>
+                <button class="pill" type="button" data-lang="en">EN</button>
+              </div>
+            </div>
+
+            <div class="lang__panel is-on" data-lang-panel="zh">
+              本作探讨“中式家庭期望”如何沿血缘关系自上而下传递。在实验影像中，我以木偶家庭为主体，将其关系建构为“地球—月亮—卫星”的环绕结构：象征血缘的“脐带”连接三代，而象征期望的彩色丝线从上位者的“心脏”生长，先缠绕自身，再越过中间代抵达下位者，最终使其不堪负重而倒下。结尾处彩线瞬时点亮又迅速熄灭，强调血缘—脐带—期望之间的牢固绑定。该影像也构成我后续参与式装置的逻辑起点：将创作权力下放，使真实处于该语境的人群进入作品并成为其组成部分。
+            </div>
+
+            <div class="lang__panel" data-lang-panel="en">
+              This work examines how “Chinese family expectation” is transmitted downward through kinship and hierarchy. The film stages a puppet family as an orbital system (earth–moon–satellite): an “umbilical” linkage marks blood ties, while coloured threads—coded as expectation—grow from the elder’s “heart,” entangle the self, cross the middle generation, and finally burden the youngest until collapse. The ending—threads flashing briefly, then extinguishing—condenses the binding force of bloodline, tether, and demand. The film also becomes the conceptual starting point for a later participatory installation that decentralises authorship by inviting those living within this context to co-constitute the work.
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="note">
+            Assessment alignment: clear concept → material metaphor → structural outcome, with an explicit expansion into participatory method.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- PROJECT 04 -->
+    <section class="project" data-index="4" id="p4">
+      <div class="board">
+        <div class="board__left">
+          <div class="media frame media--audio">
+            <div class="audioCard">
+              <div class="audioCard__title">Experimental Sound (MP4 audio)</div>
+              <div class="audioCard__sub">Chinese family expectation · affect, repetition, restraint</div>
+
+              <audio class="js-audio" controls preload="metadata">
+                <source src="../assets/videos/p4.mp4" type="video/mp4" />
+                Your browser does not support audio playback.
+              </audio>
+
+              <div class="audioCard__hint">
+                This piece does not autoplay to protect the review environment. Press play when ready.
+              </div>
+            </div>
+          </div>
+          <div class="caption">Audio work presented as MP4. Controls are intentional.</div>
+        </div>
+
+        <aside class="board__right">
+          <div class="kicker">
+            <span class="kicker__no">04</span>
+            <span class="kicker__type">Experimental Sound</span>
+          </div>
+
+          <h2 class="title">Family Expectation · Sound Study</h2>
+
+          <div class="meta">
+            <div class="meta__row">
+              <span class="meta__k">Format</span><span class="meta__v">Audio (MP4 container)</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Use</span><span class="meta__v">Listening-only work / companion piece</span>
+            </div>
+            <div class="meta__row">
+              <span class="meta__k">Note</span><span class="meta__v">Update materials list when finalised</span>
+            </div>
+          </div>
+
+          <div class="lang">
+            <div class="lang__bar">
+              <div class="lang__label">Artist statement</div>
+              <div class="lang__switch">
+                <button class="pill is-on" type="button" data-lang="en">EN</button>
+                <button class="pill" type="button" data-lang="zh">中文</button>
+              </div>
+            </div>
+
+            <div class="lang__panel is-on" data-lang-panel="en">
+              This sound work approaches family expectation as an atmosphere: pressure is not only spoken, but repeated, timed, and internalised. The composition uses controlled pacing and interruption to register how obligation settles into everyday attention. (Materials and production notes can be added as the final mix is locked.)
+            </div>
+
+            <div class="lang__panel" data-lang-panel="zh">
+              本声音作品将家庭期望作为一种“氛围”来处理：压力并不只通过语言表达，而是通过重复、节律与被内化的停顿进入日常注意力结构。作品以克制的推进与中断来呈现义务如何沉积为持续的心理负重。（素材与制作说明可在最终混音确定后补充。）
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="note">
+            If you want this section to feel more “installation-like”, I can add a minimal scrolling transcript panel later.
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="footer" id="credits">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="footer__title">Credits</div>
+          <div class="footer__text">
+            Project 02 is a collaboration: Li Qingzhi (concept + visual system, AI generation) · Liu Yanshuo (sound + code implementation).
+          </div>
+        </div>
+        <div class="footer__right">
+          <div class="footer__title">Contact</div>
+          <div class="footer__text">
+            Replace with your email / Instagram / Vimeo links when ready.
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- slow silhouette sprite -->
+  <button class="sprite" id="sprite" type="button" aria-label="Open artist info"></button>
+
+  <!-- About modal -->
+  <div class="modal" id="aboutModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="1"></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-label="About Li Qingzhi">
+      <div class="modal__top">
+        <div class="modal__title">LIQINGZHI · About</div>
+        <button class="modal__close" type="button" data-close="1">Close</button>
+      </div>
+
+      <div class="modal__body">
+        <div class="lang">
+          <div class="lang__bar">
+            <div class="lang__label">Short bio</div>
+            <div class="lang__switch">
+              <button class="pill is-on" type="button" data-lang="en">EN</button>
+              <button class="pill" type="button" data-lang="zh">中文</button>
+            </div>
+          </div>
+
+          <div class="lang__panel is-on" data-lang-panel="en">
+            I work across moving image, interaction, and critical theory to study how visibility is organised—by platforms, kinship, and cultural scripts. My projects treat images and interfaces as sites where power becomes ordinary: not only represented, but enacted through rhythm, ranking, and repetition. Methodologically, I combine research-led writing with practice experiments (collage, AI-generated visuals, game systems, participatory structures) to make critique legible as a viewing/listening experience.
+          </div>
+
+          <div class="lang__panel" data-lang-panel="zh">
+            我的创作与研究位于影像、交互与批判理论的交叉处，关注“可见度”如何被平台机制、亲属结构与文化脚本组织起来。作品将图像与界面视为权力日常化的发生场：权力不仅被呈现，更通过节律、排序与重复被执行。方法上，我以研究写作为支撑，并通过拼贴、AI 生成视觉、游戏系统与参与式结构进行实践实验，使批判以观看/聆听经验的形式变得可感、可辨。
+          </div>
+        </div>
+
+        <div class="modal__hint">
+          Tip: the silhouette appears slowly at different scroll positions to interrupt habitual reading pace—click it anytime.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
