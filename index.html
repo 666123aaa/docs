@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Li Qingzhi — Home</title>
+  <meta name="description" content="Li Qingzhi — portfolio home." />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./home.css" />
+</head>
+
+<body class="is-home">
+  <header class="topbar" role="banner">
+    <a class="brand" href="./index.html">LI QINGZHI</a>
+
+    <nav class="topnav" aria-label="Primary">
+      <a class="navlink is-current" href="./index.html">HOME</a>
+      <a class="navlink" href="./about.html">ABOUT</a>
+      <a class="navlink" href="./works.html">WORKS</a>
+      <a class="navlink" href="./assets/videos/CV_Li_Qingzhi.pdf" download>CV</a>
+    </nav>
+
+    <div class="topRight" aria-label="External">
+      <a class="topIcon" href="http://www.youtube.com/@LiqingzhiStudio" target="_blank" rel="noreferrer" title="YouTube">
+        <img src="./home%20p/YouTube.png" alt="YouTube" />
+      </a>
+    </div>
+  </header>
+
+  <div class="homeBgImg" aria-hidden="true"></div>
+
+  <div class="homeBgVideo" aria-hidden="true">
+    <iframe
+      id="homeBgYt"
+      title="Background video"
+      src=""
+      allow="autoplay; encrypted-media; picture-in-picture"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+
+  <a class="homeBgLink" id="homeBgLink" href="#" target="_blank" rel="noreferrer" aria-label="Open background video on YouTube"></a>
+
+  <div class="wanderer" aria-hidden="false" title="Go to About"></div>
+
+  <main class="homeStage" role="main">
+    <section class="homeGrid" aria-label="Works map">
+      <!-- LEFT -->
+      <aside class="homeCol homeCol--left">
+        <ul class="workList" role="list">
+          <li class="workItem"
+              data-preview="./home%20p/a.png"
+              data-bg-type="yt"
+              data-yt="4R9Mb0zad_g"
+              data-yt-url="https://youtu.be/4R9Mb0zad_g"
+              data-link="./works.html#w1">
+            <div class="workItem__title">To Be Seen As Her</div>
+            <div class="workItem__mat">Experimental video</div>
+            <div class="workItem__time">2025.4 - 2025.6</div>
+          </li>
+
+          <li class="workItem"
+              data-preview="./home%20p/b.png"
+              data-bg-type="yt"
+              data-yt="0eA6nDkWkmU"
+              data-yt-url="https://youtu.be/0eA6nDkWkmU"
+              data-link="./works.html#w2">
+            <div class="workItem__title">Interactive Extension</div>
+            <div class="workItem__mat">Game / web port</div>
+            <div class="workItem__time">2025.4 - 2025.6</div>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- CENTER preview -->
+      <section class="homeCenter" aria-label="Preview">
+        <a class="homePreview" id="homePreviewLink" href="./works.html#w1">
+          <img
+            id="homePreviewImg"
+            class="homePreview__img"
+            src="./home%20p/a.png"
+            alt="Preview"
+            loading="eager"
+            draggable="false" />
+
+          <div class="homeTapHint" id="homeTapHint" aria-hidden="true">
+            <div class="homeTapHint__pill">单击以进入作品 / CLICK TO ENTER</div>
+          </div>
+
+          <div class="homePreview__caption" id="homePreviewCap">Hover to preview · Click a work to switch background.</div>
+        </a>
+      </section>
+
+      <!-- RIGHT -->
+      <aside class="homeCol homeCol--right">
+        <ul class="workList" role="list">
+          <li class="workItem"
+              data-preview="./home%20p/c.png"
+              data-bg-type="yt"
+              data-yt="2JRiMziLkdE"
+              data-yt-url="https://youtu.be/2JRiMziLkdE"
+              data-link="./works.html#w3">
+            <div class="workItem__title">Bloodline — Umbilical cord — Expectation</div>
+            <div class="workItem__mat">Experimental film</div>
+            <div class="workItem__time">2024.3 - 2024.4</div>
+          </li>
+
+          <li class="workItem"
+              data-preview="./home%20p/d.png"
+              data-bg-type="img"
+              data-yt=""
+              data-yt-url="https://youtu.be/mfAOCYIGnuc"
+              data-link="./works.html#w4">
+            <div class="workItem__title">Be quieter</div>
+            <div class="workItem__mat">Sound work</div>
+            <div class="workItem__time">2024.3 - 2024.4</div>
+          </li>
+
+          <li class="workItem"
+              data-preview="./home%20p/e.png"
+              data-bg-type="yt"
+              data-yt="hJqx9ituPAk"
+              data-yt-url="https://youtu.be/hJqx9ituPAk"
+              data-link="./works.html#w5">
+            <div class="workItem__title">The Unbearable Weight of Being</div>
+            <div class="workItem__mat">Interactive installation</div>
+            <div class="workItem__time">2024.3 - 2024.4</div>
+          </li>
+        </ul>
+      </aside>
+    </section>
+
+    <footer class="homeFoot">
+      <span>© <span id="year"></span> Li Qingzhi</span>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+  <script src="./home.js"></script>
+</body>
+</html>
