@@ -585,10 +585,10 @@ img{ max-width: 100%; height: auto; display: block; }
 
   .worksBg img{ opacity: .06; }
 }
-/* 
+
 @media (prefers-reduced-motion: reduce){
   body{ transition: none !important; }
   .work, .photoDrift__img{ transition: none !important; }
 }
 
-*/
+
