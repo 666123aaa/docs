@@ -9,7 +9,7 @@
   } else {
     ready();
   }
-
+return;
   // smooth navigation for internal links
   const smoothNav = (url) => {
     document.body.classList.add("is-leaving");
@@ -161,3 +161,4 @@
     }, 4200);
   });
 })();
+
