@@ -114,7 +114,7 @@
       if (!currentEl) return;
       const map = {
         w1: "01 · To Be Seen As Her",
-        w2: "02 · Interactive Extension",
+        w2: "02 · To Be Seen As Her(Expansion Game - Cooperation) ",
         w3: "03 · Bloodline — Umbilical cord — Expectation",
         w4: "04 · Be quieter",
         w5: "05 · The Unbearable Weight of Being",
