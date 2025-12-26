@@ -73,7 +73,7 @@
   user-select: none;
 }
 .workItem__title{
-  font-size: 17px;
+  font-size: 21px;
   font-weight: 600;
   letter-spacing: .06em;
   line-height: 1.25;
@@ -88,7 +88,7 @@
 }
 .workItem__time{
   margin-top: 6px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: .18em;
   opacity: .78;
