@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Unbearable Weight of Being — Detail</title>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="is-detail" data-work="w5">
+  <style>
+    .is-detail[data-work="w5"]::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("../assets/images/home/e.png");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -1;
+    }
+  </style>
+  <header class="topbar" role="banner">
+    <a class="brand" href="../index.html">LI QINGZHI</a>
+    <nav class="topnav" aria-label="Primary">
+      <a class="navlink" href="../index.html">HOME</a>
+      <a class="navlink" href="../about.html">ABOUT</a>
+      <a class="navlink is-current" href="../works.html">WORKS</a>
+      <a class="navlink" href="../assets/videos/CV_Li_Qingzhi.pdf" download>CV</a>
+    </nav>
+  </header>
+
+  <main class="page" style="max-width:1200px;margin:0 auto;padding:calc(var(--topbar-h) + 26px) var(--gutter) 60px;">
+    <section class="work__grid work__grid--wide" style="gap:44px;">
+      <div class="media">
+        <div class="media__frame">
+          <iframe class="yt" title="Installation preview" src="https://www.youtube.com/embed/hJqx9ituPAk?autoplay=0&mute=0&playsinline=1&controls=1&rel=0"
+            allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen loading="eager"></iframe>
+        </div>
+        <div class="photoDrift" data-rotate="1" aria-label="Installation photos">
+          <img class="photoDrift__img is-on" src="../assets/videos/a.jpg" alt="Installation 1" loading="lazy" />
+          <img class="photoDrift__img" src="../assets/videos/b.jpg" alt="Installation 2" loading="lazy" />
+          <img class="photoDrift__img" src="../assets/videos/c.jpg" alt="Installation 3" loading="lazy" />
+          <img class="photoDrift__img" src="../assets/videos/d.jpg" alt="Installation 4" loading="lazy" />
+        </div>
+      </div>
+
+      <aside class="meta">
+        <div class="meta__kicker">05 — Interactive installation</div>
+        <h1 class="meta__title">The Unbearable Weight of Being (Inherited Threads)</h1>
+
+        <p class="meta__para">
+          The installation stages inheritance as an affective technology: threads and notes map how expectations are transmitted
+          across generations, binding the body through intimacy rather than coercion. Participation becomes a method—visitors
+          externalize, relocate, and reassign expectations to expose how "family" organizes obligation.
+        </p>
+
+        <div class="meta__links">
+          <a class="underline" href="https://youtu.be/hJqx9ituPAk" target="_blank" rel="noreferrer">Open on YouTube ↗</a>
+          <a class="underline" href="../works.html#w5">Back to Works ↗</a>
+        </div>
+      </aside>
+    </section>
+
+    <section style="margin-top:34px;">
+      <div class="meta__kicker">Gallery</div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;">
+        <img src="../assets/videos/a.jpg" alt="Photo A" loading="lazy" />
+        <img src="../assets/videos/b.jpg" alt="Photo B" loading="lazy" />
+        <img src="../assets/videos/c.jpg" alt="Photo C" loading="lazy" />
+      </div>
+    </section>
+  </main>
+
+  <footer class="siteFooter">
+    <div class="siteFooter__inner">
+      <span>© <span id="year"></span> Li Qingzhi</span>
+      <span class="sep">/</span>
+      <a href="../index.html">HOME</a>
+      <span class="sep">/</span>
+      <a href="../about.html">ABOUT</a>
+      <span class="sep">/</span>
+      <a href="../works.html">WORKS</a>
+      <span class="sep">/</span>
+      <a href="../assets/videos/CV_Li_Qingzhi.pdf" download>CV</a>
+    </div>
+  </footer>
+
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
