@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work 02 — Interactive Prototype</title>
+
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/w2.css" />
+</head>
+
+<body class="detail detail-w2">
+  <style>
+    .detail-w2::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("../assets/images/home/b.png");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -1;
+    }
+  </style>
+  <header class="topbar">
+    <a class="brand" href="../index.html">LI QINGZHI</a>
+
+    <nav class="topnav" aria-label="Primary navigation">
+      <a href="../index.html">HOME</a>
+      <a href="../about.html">ABOUT</a>
+      <a href="../works.html" class="active">WORKS</a>
+      <a href="../assets/videos/CV_Li_Qingzhi.pdf" target="_blank" rel="noopener">CV</a>
+    </nav>
+
+    <!-- Right side icon(s) -->
+    <div class="topRight">
+      <a class="topIcon" href="https://www.youtube.com/@LiqingzhiStudio" target="_blank" rel="noopener" aria-label="Open YouTube">
+        <img src="../assets/images/home/YouTube.png" alt="" />
+      </a>
+    </div>
+  </header>
+
+  <main class="w2Wrap">
+    <section class="w2Grid">
+      <!-- Left: playable prototype -->
+      <div class="w2StageCard">
+        <div class="w2Toolbar" role="group" aria-label="Prototype controls">
+          <button class="chip" type="button" data-w2="reset">RESET</button>
+          <button class="chip" type="button" data-w2="mute">MUTE</button>
+          <button class="chip" type="button" data-w2="fs">FULLSCREEN</button>
+        </div>
+
+        <div class="w2Stage" id="w2Stage">
+          <canvas id="w2Canvas" aria-label="Interactive maze prototype" tabindex="0"></canvas>
+
+          <!-- Popup modal -->
+          <div class="w2Modal" id="w2Modal" aria-hidden="true">
+            <div class="w2ModalCard" role="dialog" aria-modal="true" aria-label="Continue playing dialog">
+              <div class="w2ModalTitle">Continue Playing?</div>
+              <div class="w2ModalHint">Y = Yes · N = No</div>
+              <div class="w2ModalBtns">
+                <button class="btnYes" type="button" data-w2="yes">Yes</button>
+                <button class="btnNo" type="button" data-w2="no">No</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile controls -->
+          <div class="w2Dpad" aria-label="Mobile controls">
+            <button type="button" class="dpadBtn up" data-w2="up" aria-label="Up">▲</button>
+            <button type="button" class="dpadBtn left" data-w2="left" aria-label="Left">◀</button>
+            <button type="button" class="dpadBtn right" data-w2="right" aria-label="Right">▶</button>
+            <button type="button" class="dpadBtn down" data-w2="down" aria-label="Down">▼</button>
+          </div>
+        </div>
+
+        <div class="w2Note">
+          Please turn on the sound for the best experience.</code>.
+        </div>
+      </div>
+
+      <!-- Right: metadata -->
+      <aside class="w2Meta">
+        <div class="metaBlock">
+          <div class="metaLabel">TIME</div>
+          <div class="metaText">2025.6 – 2025.7</div>
+        </div>
+
+        <div class="metaBlock">
+          <div class="metaLabel">KEYWORDS</div>
+          <div class="metaText">Feminist game art · Platform visual culture · Embodied gendered power</div>
+        </div>
+
+        <div class="metaBlock">
+          <div class="metaLabel">STATEMENT</div>
+          <div class="metaText">
+            A collaborative interactive prototype extending my video work. The satirical maze examines how agency is generated
+            within gendered power structures. A biologically female predatory-animal avatar (presented without stylisation or gender
+            markers) is guided toward an exit composed of cosmetic/body-shaping objects—false lashes, slimming stockings, diet pills—
+            signalling a platform-coded feminine script. Timed pop-ups interrupt progression, modelling hesitation under structural
+            pressure. Multiple endings expose how "choice" is continually shaped, prompting reflection on where subjectivity is
+            positioned within this system.
+          </div>
+        </div>
+
+        <div class="metaBlock">
+          <div class="metaLabel">CREDITS</div>
+          <div class="metaText">
+            Concept, visual design, artistic direction, narrative logic: Li Qingzhi<br/>
+            Technical implementation, interactive logic, sound design: Liu Yanshuo
+          </div>
+        </div>
+
+        <div class="metaBlock">
+          <div class="metaLabel">LINK</div>
+      <div class="meta__links">
+          <a class="underline" href="https://www.youtube.com/watch?v=0eA6nDkWkmU&t=9s" target="_blank" rel="noreferrer">Open on YouTube ↗</a>
+          <a class="underline" href="../works.html#w2">Back to Works ↗</a>
+           <a class="underline" href="../works.html#w3">Next work ↗</a>
+        </div>
+      </aside>
+    </section>
+        </div>
+      </aside>
+    </section>
+
+  <footer class="siteFooter">
+    <div class="siteFooter__inner">
+      <span>© <span id="year"></span> Li Qingzhi</span>
+      <span class="sep">/</span>
+      <a href="../index.html">HOME</a>
+      <span class="sep">/</span>
+      <a href="../about.html">ABOUT</a>
+      <span class="sep">/</span>
+      <a href="../works.html">WORKS</a>
+      <span class="sep">/</span>
+      <a href="../assets/videos/CV_Li_Qingzhi.pdf" download>CV</a>
+    </div>
+  </footer>
+
+
+  
+  <script src="../assets/js/script.js"></script>
+  <script src="../assets/js/w2.js"></script>
+</body>
+</html>
