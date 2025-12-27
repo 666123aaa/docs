@@ -1,0 +1,202 @@
+/* W2 page only — keeps global styles.css intact */
+.w2Wrap{
+  padding: calc(var(--topbar-h) + 28px) var(--gutter) 64px;
+}
+
+.w2Grid{
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.85fr);
+  gap: clamp(18px, 3vw, 44px);
+  align-items: start;
+}
+
+.w2StageCard{
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(0,0,0,.05);
+  padding: 16px 16px 14px;
+}
+
+.w2Toolbar{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 4px 2px 12px;
+}
+
+.chip{
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.9);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.chip:hover{ border-color: rgba(0,0,0,.22); }
+.chip:active{ transform: translateY(1px); }
+
+.w2Stage{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #f6f6f6;
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+#w2Canvas{
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+}
+
+.w2Note{
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0,0,0,.55);
+  line-height: 1.5;
+}
+
+.w2Note code{
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(0,0,0,.04);
+}
+
+.w2Meta .metaBlock{
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+
+.metaLabel{
+  font-size: 14px;
+  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.45);
+  margin-bottom: 8px;
+}
+
+.metaText{
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: rgba(0,0,0,.78);
+}
+
+.metaLink{
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 16px;
+  font-weight: bold;
+  font-weight: 500;
+  line-height: 1.6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Modal (Continue Playing) */
+.w2Modal{
+  position: absolute;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(0,0,0,.35);
+}
+
+.w2Modal.isOpen{
+  display: grid;
+}
+
+.w2ModalCard{
+  width: min(420px, calc(100% - 28px));
+  background: #fff;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,.22);
+}
+
+.w2ModalTitle{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.w2ModalHint{
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0,0,0,.55);
+  margin-bottom: 14px;
+}
+
+.w2ModalBtns{
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.btnYes, .btnNo{
+  border-radius: 12px;
+  padding: 10px 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  cursor: pointer;
+  background: #fff;
+}
+
+.btnYes:hover, .btnNo:hover{ border-color: rgba(0,0,0,.22); }
+
+/* Mobile D-pad */
+.w2Dpad{
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 132px;
+  height: 132px;
+  display: none;
+  pointer-events: none;
+}
+
+.dpadBtn{
+  pointer-events: auto;
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.14);
+  background: rgba(255,255,255,.9);
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.dpadBtn:active{ transform: translateY(1px); }
+
+.dpadBtn.up{ left: 44px; top: 0; }
+.dpadBtn.down{ left: 44px; bottom: 0; }
+.dpadBtn.left{ left: 0; top: 44px; }
+.dpadBtn.right{ right: 0; top: 44px; }
+
+@media (max-width: 920px){
+  .w2Grid{
+    grid-template-columns: 1fr;
+  }
+  .w2Dpad{
+    display: block;
+  }
+}
